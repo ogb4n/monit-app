@@ -1,6 +1,7 @@
 <div align="center">
 
   <h3 align="center">Monit-App</h3>
+  *project is in alpha and have only been tested on debian/rockyLinux systems*
 
   <p align="center">
     A python app that monitors your system
@@ -69,7 +70,11 @@ Be sure having python and ip installed on your machine
 
 ### Prerequisites
 
-You will need python and pip installed on your machine. You will also need to install the required libraries.
+You will need python and pip installed on your machine.
+
+If you want to use the docker-compose.yml file provided in the /api folder, be sure having docker installed and ready on the machine 
+
+You will also need to install the required libraries.
 
 ### Installation
 
@@ -78,16 +83,8 @@ You will need python and pip installed on your machine. You will also need to in
    git clone https://github.com/your_username_/Project-Name.git
    ```
 
-<br>
 
-3. Go into the app directory and run the command `pip install -r requirements.txt` to install the required libraries
-   ```sh
-   pip install -r requirements.txt
-   ```
-
-<br>
-
-4. Go into the /app folder and edit the `config.json.example` file <br>
+3. Go into the /app folder and edit the `config.json.example` file <br>
    it should look like this:
 
    ```js
@@ -105,31 +102,13 @@ You will need python and pip installed on your machine. You will also need to in
 
 <br>
 
-5. Still in the /app folder, run the ./install.sh script as admin to install the app
+4. Still in the /app folder, run the ./install.sh script as admin to install the app
 
    ```sh
    sudo ./install.sh
    ```
 
    This will install the app as a service and will start it.
-
-<br>
-
-### You enabled the local_api_mode
-
-6. go back to the /api folder and run the command `pip install -r requirements.txt` to install the required libraries
-
-   ```sh
-   pip install -r requirements.txt
-   ```
-
-<br>
-
-7. Still into the /api folder, run the command 'monit-api.py' to start the api
-
-   ```sh
-   python monit-api.py
-   ```
 
    The api will be available at 'http://localhost:8085/'
 
@@ -166,6 +145,7 @@ You can also use the command line to see the data, especially if you do not want
 - [x] Add logs
 - [x] Add local_api_mode
 - [x] Add web interface
+- [ ] POST to webhook when cursor hit data
 - [ ] Add multiple machines monitoring
 - [ ] Add Additional Templates & routes
 
@@ -179,8 +159,5 @@ Project Link: [https://gitlab.com/ogb4n/b2-linux/-/tree/main/TP3-DEV](https://gi
 
 Github: [ogb4n](https://github.com/ogb4n)
 
-Discord : uptoban
-
-mail : <a href="mailto:contact@doniban.fr">contact@doniban.fr</a>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
