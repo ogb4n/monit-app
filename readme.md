@@ -1,7 +1,9 @@
 <div align="center">
 
   <h3 align="center">Monit-App</h3>
-  *project is in alpha and have only been tested on debian/rockyLinux systems*
+
+_project is in alpha and have only been tested on debian/rockyLinux systems_ <br>
+_next major changes whill be windows implementation, and alerting system_
 
   <p align="center">
     A python app that monitors your system
@@ -17,37 +19,11 @@
   </p>
 </div>
 
-<!-- TABLE OF CONTENTS -->
-<details>
-  <summary>Table of Contents</summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
-  </ol>
-</details>
-
 <!-- ABOUT THE PROJECT -->
 
 ## About The Project
 
-This is a school project that aims to monitor a system. It is written in python and uses the psutil library. I also use a mongodb database to store the reports data and a web interface to display the data using Flask and pyMongo.
+This is a school project that aims to monitor a system. It is written in python and uses the flask library to create an api and a web interface. It also uses the psutil library to monitor the system and the pymongo library to store the data in a mongodb database.
 
 This app will receive updates in the future since it is a projetct i'd loved to work on.
 
@@ -58,6 +34,11 @@ This app will receive updates in the future since it is a projetct i'd loved to 
 - Python and most of native libraries, psutil, pyMongo, Flask
 - mongodb
 
+### Built For
+
+- Linux debian based systems (tested ✅)
+- RockyLinux (tested ✅)
+- Windows (not implemented ❌)
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
@@ -66,30 +47,28 @@ This app will receive updates in the future since it is a projetct i'd loved to 
 
 Clone the repository on your machine
 
-Be sure having python and ip installed on your machine
+Be sure having python installed on your machine
 
 ### Prerequisites
 
-You will need python and pip installed on your machine.
+You will need python installed on your machine.
 
-If you want to use the docker-compose.yml file provided in the /api folder, be sure having docker installed and ready on the machine 
-
-You will also need to install the required libraries.
+If you want to use the docker-compose.yml file provided in the /api folder, be sure having docker installed and ready on the machine
 
 ### Installation
 
 2. Clone the repo
-   ```sh
-   git clone https://github.com/your_username_/Project-Name.git
-   ```
 
+   ```sh
+   git clone https://github.com/ogb4n/alpha_monit-app.git
+   ```
 
 3. Go into the /app folder and edit the `config.json.example` file <br>
    it should look like this:
 
    ```js
    {
-    "ports":[list of ports],
+    "ports":[ {your list of ports} ],
     "log_dir" : "/var/log/monit/",
     "rapport_dir" : "/var/monit/reports/",
     "local_api_mode": true
@@ -145,8 +124,8 @@ You can also use the command line to see the data, especially if you do not want
 - [x] Add logs
 - [x] Add local_api_mode
 - [x] Add web interface
-- [ ] POST to webhook when cursor hit data
-- [ ] Add multiple machines monitoring
+- [ ] POST to webhook when cursor hit data (-alerting)
+- [ ] Add clustering
 - [ ] Add Additional Templates & routes
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -158,6 +137,5 @@ You can also use the command line to see the data, especially if you do not want
 Project Link: [https://gitlab.com/ogb4n/b2-linux/-/tree/main/TP3-DEV](https://gitlab.com/ogb4n/b2-linux/-/tree/main/TP3-DEV)
 
 Github: [ogb4n](https://github.com/ogb4n)
-
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
