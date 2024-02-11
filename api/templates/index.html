@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Monit API Guide</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-gray-900 text-white font-sans">
+    <div class="container mx-auto px-4 py-8">
+      <h1 class="text-4xl font-bold text-center mb-8">
+        Welcome to the Monit API!
+      </h1>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="bg-gray-800 rounded-lg p-6">
+          <h2 class="text-xl font-bold mb-4">Routes you can call:</h2>
+          <ul class="list-disc ml-4">
+            <li class="mb-2">GET /reports</li>
+            <li class="mb-2">GET /reports/{id}</li>
+            <li class="mb-2">POST /api/data/post</li>
+          </ul>
+        </div>
+
+        <div class="bg-gray-800 rounded-lg p-6">
+          <h2 class="text-xl font-bold mb-4">Test Requests</h2>
+          <form id="getReportForm" class="mb-4">
+            <div class="mb-4">
+              <label for="reportId" class="block text-gray-300"
+                >Enter Report ID:</label
+              >
+              <input
+                type="text"
+                id="reportId"
+                name="reportId"
+                class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-md focus:outline-none focus:border-blue-500"
+                placeholder="Enter Report ID"
+              />
+            </div>
+            <button
+              type="button"
+              onclick="getRequest()"
+              class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-md"
+            >
+              Get Report
+            </button>
+          </form>
+          <div id="responseContainer" class="hidden">
+            <h3 class="text-lg font-bold mb-2">Response:</h3>
+            <pre
+              id="responseText"
+              class="bg-gray-700 p-4 rounded-md overflow-auto"
+            ></pre>
+          </div>
+        </div>
+
+        <div class="bg-gray-800 rounded-lg p-6">
+          <h2 class="text-xl font-bold mb-4">Test Requests</h2>
+          <form id="getAllReportsForm" class="mb-4">
+            <button
+              type="button"
+              onclick="getAllReportsRequest()"
+              class="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-md"
+            >
+              Get All Reports
+            </button>
+          </form>
+          <div id="allReportsResponseContainer" class="hidden">
+            <h3 class="text-lg font-bold mb-2">All Reports Response:</h3>
+            <pre
+              id="allReportsResponseText"
+              class="bg-gray-700 p-4 rounded-md overflow-auto"
+            ></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function getRequest() {
+        var reportId = document.getElementById("reportId").value;
+        fetch("/reports/" + reportId)
+          .then((response) => response.json())
+          .then((data) => {
+            document
+              .getElementById("responseContainer")
+              .classList.remove("hidden");
+            document.getElementById("responseText").textContent =
+              JSON.stringify(data, null, 2);
+          })
+          .catch((error) => console.error("Error:", error));
+      }
+
+      function getAllReportsRequest() {
+        fetch("/reports")
+          .then((response) => response.json())
+          .then((data) => {
+            document
+              .getElementById("allReportsResponseContainer")
+              .classList.remove("hidden");
+            document.getElementById("allReportsResponseText").textContent =
+              JSON.stringify(data, null, 2);
+          })
+          .catch((error) => console.error("Error:", error));
+      }
+    </script>
+  </body>
+</html>
