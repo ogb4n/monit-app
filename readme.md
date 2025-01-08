@@ -134,8 +134,6 @@ You can also use the command line to see the data, especially if you do not want
 
 ## Contact
 
-Project Link: [https://gitlab.com/ogb4n/b2-linux/-/tree/main/TP3-DEV](https://gitlab.com/ogb4n/b2-linux/-/tree/main/TP3-DEV)
-
 Github: [ogb4n](https://github.com/ogb4n)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
